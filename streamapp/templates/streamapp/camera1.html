@@ -1,0 +1,285 @@
+{% load widget_tweaks %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+    <script defer="">
+        console.log("hello")
+
+        function fun() {
+            return fetch('http://127.0.0.1:8000/NO_of_blink/')
+                .then((response) => {
+                    // console.log(response.json())
+                    x = response.json()
+                    return x
+                })
+                .then((data) => {
+                    console.log(data)
+                    return data.no_of_blinks
+                });
+        }
+        setInterval(async() => {
+            fun().then(dat => {
+                document.getElementById("no_of_blinks").innerHTML = dat
+                console.log(dat)
+            })
+        }, 2000);
+    </script>
+    <script defer="" src="/static/js/bundle.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        code {
+            font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+        }
+        /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxTQUFTO0VBQ1Q7O2NBRVk7RUFDWixtQ0FBbUM7RUFDbkMsa0NBQWtDO0FBQ3BDOztBQUVBO0VBQ0U7YUFDVztBQUNiIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgJ1JvYm90bycsICdPeHlnZW4nLFxuICAgICdVYnVudHUnLCAnQ2FudGFyZWxsJywgJ0ZpcmEgU2FucycsICdEcm9pZCBTYW5zJywgJ0hlbHZldGljYSBOZXVlJyxcbiAgICBzYW5zLXNlcmlmO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbn1cblxuY29kZSB7XG4gIGZvbnQtZmFtaWx5OiBzb3VyY2UtY29kZS1wcm8sIE1lbmxvLCBNb25hY28sIENvbnNvbGFzLCAnQ291cmllciBOZXcnLFxuICAgIG1vbm9zcGFjZTtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */
+    </style>
+    <style>
+        .App {
+            text-align: center;
+        }
+        
+        .App-logo {
+            height: 40vmin;
+            pointer-events: none;
+        }
+        
+        @media (prefers-reduced-motion: no-preference) {
+            .App-logo {
+                animation: App-logo-spin infinite 20s linear;
+            }
+        }
+        
+        .App-header {
+            background-color: #282c34;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: white;
+        }
+        
+        .App-link {
+            color: #61dafb;
+        }
+        
+        @keyframes App-logo-spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9BcHAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsY0FBYztFQUNkLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFO0lBQ0UsNENBQTRDO0VBQzlDO0FBQ0Y7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsbUJBQW1CO0VBQ25CLHVCQUF1QjtFQUN2Qiw2QkFBNkI7RUFDN0IsWUFBWTtBQUNkOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTtFQUNFO0lBQ0UsdUJBQXVCO0VBQ3pCO0VBQ0E7SUFDRSx5QkFBeUI7RUFDM0I7QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIi5BcHAge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5BcHAtbG9nbyB7XG4gIGhlaWdodDogNDB2bWluO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuQG1lZGlhIChwcmVmZXJzLXJlZHVjZWQtbW90aW9uOiBuby1wcmVmZXJlbmNlKSB7XG4gIC5BcHAtbG9nbyB7XG4gICAgYW5pbWF0aW9uOiBBcHAtbG9nby1zcGluIGluZmluaXRlIDIwcyBsaW5lYXI7XG4gIH1cbn1cblxuLkFwcC1oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xuICBtaW4taGVpZ2h0OiAxMDB2aDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogY2FsYygxMHB4ICsgMnZtaW4pO1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5BcHAtbGluayB7XG4gIGNvbG9yOiAjNjFkYWZiO1xufVxuXG5Aa2V5ZnJhbWVzIEFwcC1sb2dvLXNwaW4ge1xuICBmcm9tIHtcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTtcbiAgfVxuICB0byB7XG4gICAgdHJhbnNmb3JtOiByb3RhdGUoMzYwZGVnKTtcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1v6hr40 {
+            padding: 20px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-in3yi3 {
+            font-weight: bold;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1efszdz {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-flex-flow: column;
+            -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+            flex-flow: column;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1tlewtd {
+            width: 80vw;
+            height: 60vh;
+            background-color: #EFEDED;
+            margin: auto;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1u7k56c {
+            margin-top: 30px;
+            margin: auto;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-ot9mci {
+            background-color: #FD182D;
+            font-size: 20px;
+            color: white;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-a05ple {
+            border: 1px solid black;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex-flow: row;
+            -webkit-flex-flow: row;
+            -ms-flex-flow: row;
+            flex-flow: row;
+            margin: auto;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1r5ng6f {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex-flow: column;
+            -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+            flex-flow: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-0 {}
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1lwufpr {
+            margin-left: 20px;
+            padding: 10px;
+            background-color: pink;
+            border-radius: 5px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-46b038 {
+            margin-top: 30px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1x4236u {
+            fontsize: 20px;
+            font-weight: 700;
+            opacity: 0.6;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1q7njkh {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1085.0" data-gr-ext-installed="">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="App">
+            <div class="MuiBox-root css-1v6hr40"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_102_235)">
+            <path d="M2 15.5V17.5H22V15.5H2ZM2 10.5V12.5H22V10.5H2ZM2 5.5V7.5H22V5.5H2Z" fill="black"></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_102_235">
+              <rect width="24" height="24" fill="white"></rect>
+            </clipPath>
+          </defs>
+        </svg>
+                <div class="MuiBox-root css-in3yi3">Wake Up</div>
+            </div>
+            <div>
+                <div class="MuiBox-root css-1efszdz">
+                    <div class="MuiBox-root css-1tlewtd">
+                        <img style="height:100%" src="{% url 'video_feed' %}" />
+                    </div><br>
+                    <div class="MuiBox-root css-1u7k56c">
+                        <div class="MuiBox-root css-ot9mci">Start Journey</div>
+                    </div><br>
+                    <div class="MuiBox-root css-a05ple">
+                        <div class="MuiBox-root css-1r5ng6f">
+                            <div class="MuiBox-root css-0">Total Blinks</div>
+                            <div class="MuiBox-root css-0"><b id="no_of_blinks">{{no_of_blinks}}</b></div>
+                        </div>
+                        <div class="MuiBox-root css-1lwufpr"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M24.8489 11.8664C22.4952 7.27395 17.8355 4.16675 12.5 4.16675C7.16447 4.16675 2.50345 7.27612 0.151018 11.8668C0.0517306 12.0632 0 12.2802 0 12.5003C0 12.7204 0.0517306 12.9374 0.151018 13.1338C2.50475 17.7262 7.16447 20.8334 12.5 20.8334C17.8355 20.8334 22.4965 17.724 24.8489 13.1333C24.9482 12.9369 25 12.7199 25 12.4999C25 12.2798 24.9482 12.0628 24.8489 11.8664ZM12.5 18.7501C11.2638 18.7501 10.0555 18.3835 9.02766 17.6968C7.99985 17.01 7.19878 16.0339 6.72573 14.8919C6.25268 13.7498 6.12891 12.4931 6.37007 11.2808C6.61123 10.0684 7.20648 8.95474 8.08056 8.08066C8.95464 7.20659 10.0683 6.61133 11.2807 6.37017C12.493 6.12902 13.7497 6.25279 14.8917 6.72583C16.0338 7.19888 17.0099 7.99996 17.6967 9.02777C18.3834 10.0556 18.75 11.2639 18.75 12.5001C18.7504 13.321 18.589 14.1339 18.275 14.8923C17.9611 15.6508 17.5007 16.3399 16.9203 16.9204C16.3398 17.5008 15.6507 17.9612 14.8922 18.2751C14.1338 18.5891 13.3208 18.7505 12.5 18.7501ZM12.5 8.33341C12.1281 8.33861 11.7586 8.39394 11.4015 8.49791C11.6958 8.89794 11.8371 9.39022 11.7996 9.88547C11.7621 10.3807 11.5484 10.8462 11.1972 11.1973C10.846 11.5485 10.3806 11.7623 9.88537 11.7997C9.39012 11.8372 8.89784 11.6959 8.49781 11.4016C8.27001 12.2408 8.31113 13.1303 8.61538 13.945C8.91962 14.7596 9.47167 15.4583 10.1938 15.9428C10.916 16.4272 11.7719 16.673 12.641 16.6456C13.5102 16.6181 14.3489 16.3188 15.039 15.7897C15.7291 15.2606 16.236 14.5285 16.4882 13.6963C16.7404 12.864 16.7253 11.9737 16.445 11.1505C16.1647 10.3273 15.6333 9.61277 14.9256 9.10742C14.2179 8.60207 13.3696 8.33137 12.5 8.33341Z"
+                  fill="black"></path>
+              </svg></div>
+                    </div><br><br>
+                </div>
+            </div>
+            <div>
+                <div class="MuiBox-root css-46b038">
+                    <div class="MuiBox-root css-1x4236u">Developed with love by</div>
+                    <div class="MuiBox-root css-1q7njkh"><img src="/Images/logo.png"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+</html>

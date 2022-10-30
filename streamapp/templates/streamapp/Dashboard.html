@@ -1,0 +1,999 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+    <script defer="" src="/static/js/bundle.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        code {
+            font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+                monospace;
+        }
+
+        /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxTQUFTO0VBQ1Q7O2NBRVk7RUFDWixtQ0FBbUM7RUFDbkMsa0NBQWtDO0FBQ3BDOztBQUVBO0VBQ0U7YUFDVztBQUNiIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgJ1JvYm90bycsICdPeHlnZW4nLFxuICAgICdVYnVudHUnLCAnQ2FudGFyZWxsJywgJ0ZpcmEgU2FucycsICdEcm9pZCBTYW5zJywgJ0hlbHZldGljYSBOZXVlJyxcbiAgICBzYW5zLXNlcmlmO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbn1cblxuY29kZSB7XG4gIGZvbnQtZmFtaWx5OiBzb3VyY2UtY29kZS1wcm8sIE1lbmxvLCBNb25hY28sIENvbnNvbGFzLCAnQ291cmllciBOZXcnLFxuICAgIG1vbm9zcGFjZTtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */
+    </style>
+    <style>
+        .App {
+            text-align: center;
+        }
+
+        .App-logo {
+            height: 40vmin;
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .App-logo {
+                animation: App-logo-spin infinite 20s linear;
+            }
+        }
+
+        .App-header {
+            background-color: #282c34;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: white;
+        }
+
+        .App-link {
+            color: #61dafb;
+        }
+
+        @keyframes App-logo-spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9BcHAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsY0FBYztFQUNkLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFO0lBQ0UsNENBQTRDO0VBQzlDO0FBQ0Y7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsbUJBQW1CO0VBQ25CLHVCQUF1QjtFQUN2Qiw2QkFBNkI7RUFDN0IsWUFBWTtBQUNkOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTtFQUNFO0lBQ0UsdUJBQXVCO0VBQ3pCO0VBQ0E7SUFDRSx5QkFBeUI7RUFDM0I7QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIi5BcHAge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5BcHAtbG9nbyB7XG4gIGhlaWdodDogNDB2bWluO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuQG1lZGlhIChwcmVmZXJzLXJlZHVjZWQtbW90aW9uOiBuby1wcmVmZXJlbmNlKSB7XG4gIC5BcHAtbG9nbyB7XG4gICAgYW5pbWF0aW9uOiBBcHAtbG9nby1zcGluIGluZmluaXRlIDIwcyBsaW5lYXI7XG4gIH1cbn1cblxuLkFwcC1oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xuICBtaW4taGVpZ2h0OiAxMDB2aDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogY2FsYygxMHB4ICsgMnZtaW4pO1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5BcHAtbGluayB7XG4gIGNvbG9yOiAjNjFkYWZiO1xufVxuXG5Aa2V5ZnJhbWVzIEFwcC1sb2dvLXNwaW4ge1xuICBmcm9tIHtcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTtcbiAgfVxuICB0byB7XG4gICAgdHJhbnNmb3JtOiByb3RhdGUoMzYwZGVnKTtcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1v6hr40 {
+            padding: 20px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-in3yi3 {
+            font-weight: bold;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9zfxb7 {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-flex-flow: column;
+            -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+            flex-flow: column;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1g4erk3 {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9dygkv {
+            font-weight: bold;
+            opacity: 0.8;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t9rtxh-MuiTextField-root {
+            width: 80%;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-w3s1g-MuiFormControl-root-MuiTextField-root {
+            display: -webkit-inline-box;
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            position: relative;
+            min-width: 0;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            vertical-align: top;
+            width: 80%;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1x92c1k-MuiInputLabel-root {
+            display: block;
+            transform-origin: top left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: calc(100% - 24px);
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate(14px, 16px) scale(1);
+            -moz-transform: translate(14px, 16px) scale(1);
+            -ms-transform: translate(14px, 16px) scale(1);
+            transform: translate(14px, 16px) scale(1);
+            -webkit-transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+            color: rgba(0, 0, 0, 0.6);
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.4375em;
+            letter-spacing: 0.00938em;
+            padding: 0;
+            position: relative;
+            display: block;
+            transform-origin: top left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: calc(100% - 24px);
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate(14px, 16px) scale(1);
+            -moz-transform: translate(14px, 16px) scale(1);
+            -ms-transform: translate(14px, 16px) scale(1);
+            transform: translate(14px, 16px) scale(1);
+            -webkit-transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+            color: #1976d2;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-disabled {
+            color: rgba(0, 0, 0, 0.38);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-error {
+            color: #d32f2f;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.4375em;
+            letter-spacing: 0.00938em;
+            color: rgba(0, 0, 0, 0.87);
+            box-sizing: border-box;
+            position: relative;
+            cursor: text;
+            display: -webkit-inline-box;
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: relative;
+            border-radius: 4px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-disabled {
+            color: rgba(0, 0, 0, 0.38);
+            cursor: default;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+            border-color: rgba(0, 0, 0, 0.87);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        @media (hover: none) {
+            .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+                border-color: rgba(0, 0, 0, 0.23);
+            }
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: #1976d2;
+            border-width: 2px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline {
+            border-color: #d32f2f;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-disabled .MuiOutlinedInput-notchedOutline {
+            border-color: rgba(0, 0, 0, 0.26);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+            font: inherit;
+            letter-spacing: inherit;
+            color: currentColor;
+            padding: 4px 0 5px;
+            border: 0;
+            box-sizing: content-box;
+            background: none;
+            height: 1.4375em;
+            margin: 0;
+            -webkit-tap-highlight-color: transparent;
+            display: block;
+            min-width: 0;
+            width: 100%;
+            -webkit-animation-name: mui-auto-fill-cancel;
+            animation-name: mui-auto-fill-cancel;
+            -webkit-animation-duration: 10ms;
+            animation-duration: 10ms;
+            padding: 16.5px 14px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-input-placeholder {
+            color: currentColor;
+            opacity: 0.42;
+            -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-moz-placeholder {
+            color: currentColor;
+            opacity: 0.42;
+            -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-ms-input-placeholder {
+            color: currentColor;
+            opacity: 0.42;
+            -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-ms-input-placeholder {
+            color: currentColor;
+            opacity: 0.42;
+            -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus {
+            outline: 0;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:invalid {
+            box-shadow: none;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {}
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-input-placeholder {
+            opacity: 0 !important;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-moz-placeholder {
+            opacity: 0 !important;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-ms-input-placeholder {
+            opacity: 0 !important;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-ms-input-placeholder {
+            opacity: 0 !important;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-webkit-input-placeholder {
+            opacity: 0.42;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-moz-placeholder {
+            opacity: 0.42;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus:-ms-input-placeholder {
+            opacity: 0.42;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-ms-input-placeholder {
+            opacity: 0.42;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+            opacity: 1;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
+            -webkit-animation-duration: 5000s;
+            animation-duration: 5000s;
+            -webkit-animation-name: mui-auto-fill;
+            animation-name: mui-auto-fill;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
+            border-radius: inherit;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill WebkitBoxShadow {}
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill WebkitTextFillColor {}
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill caretColor {}
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-rki20w-MuiOutlinedInput-notchedOutline {
+            border-color: rgba(0, 0, 0, 0.23);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+            text-align: left;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            top: -5px;
+            left: 0;
+            margin: 0;
+            padding: 0 8px;
+            pointer-events: none;
+            border-radius: inherit;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            min-width: 0%;
+            border-color: rgba(0, 0, 0, 0.23);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-yjsfm1 {
+            float: unset;
+            width: auto;
+            overflow: hidden;
+            display: block;
+            padding: 0;
+            height: 11px;
+            font-size: 0.75em;
+            visibility: hidden;
+            max-width: 0.01px;
+            -webkit-transition: max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            transition: max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            white-space: nowrap;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-yjsfm1>span {
+            padding-left: 5px;
+            padding-right: 5px;
+            display: inline-block;
+            opacity: 0;
+            visibility: visible;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-197cyj1 {
+            background-color: #FD182D;
+            font-size: 20px;
+            color: white;
+            padding: 10px;
+            margin-top: 40px;
+            padding-left: 50px;
+            padding-right: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 80%;
+            max-width: 200px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1bvc4cc {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-46b038 {
+            margin-top: 30px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1x4236u {
+            fontsize: 20px;
+            font-weight: 700;
+            opacity: 0.6;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1q7njkh {
+            margin-top: 10px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-3hla36 {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: space-even;
+            -ms-flex-pack: space-even;
+            -webkit-justify-content: space-even;
+            justify-content: space-even;
+            width: 80%;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-vd6zxa-MuiTextField-root {
+            width: 100%;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-136h9lv-MuiFormControl-root-MuiTextField-root {
+            display: -webkit-inline-box;
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            position: relative;
+            min-width: 0;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            vertical-align: top;
+            width: 100%;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-16r0f0t {
+            margin: auto;
+            margin-right: 20px;
+            background: #FD182D;
+            width: 50%;
+            font-size: 20px;
+            padding: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            border-radius: 10px;
+            color: white;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-xkrfhf {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-flex-flow: column;
+            -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+            flex-flow: column;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-8hlg7w {
+            width: calc(90% - 40px);
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-flex-flow: column;
+            -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+            flex-flow: column;
+            margin: auto;
+            border: 1px solid grey;
+            border-radius: 20px;
+            padding: 20px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1ig1701 {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            -webkit-box-flex-flow: row;
+            -webkit-flex-flow: row;
+            -ms-flex-flow: row;
+            flex-flow: row;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1ls2tw3 {
+            fontweight: bold;
+            width: 100%;
+            text-align: initial;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-xeepnd {
+            fontweight: bold;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+            width: 100%;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-102lqhp {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+            -webkit-justify-content: space-evenly;
+            justify-content: space-evenly;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-zkjmzk {
+            fontweight: bold;
+            opacity: 0.8;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-vvq7ig {
+            font-weight: 700;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-12talox {
+            width: 60%;
+            margin: auto;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex-flow: column;
+            -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+            flex-flow: column;
+            border: 1px solid grey;
+            padding: 20px;
+            border-radius: 20px;
+            -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+            -webkit-justify-content: space-evenly;
+            justify-content: space-evenly;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-19pryom {
+            margin: auto;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex-flow: row;
+            -webkit-flex-flow: row;
+            -ms-flex-flow: row;
+            flex-flow: row;
+            border-radius: 20px;
+            -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+            -webkit-justify-content: space-evenly;
+            justify-content: space-evenly;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9m6kit {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-flex-flow: column;
+            -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+            flex-flow: column;
+            font-size: 24px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1uzv6oc {
+            text-align: initial;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1438wr9 {
+            height: 0%;
+            margin: auto;
+            margin-left: 20px;
+            padding: 10px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-color: #FF9066;
+            border-radius: 5px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1rzdnss {}
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-0 {}
+    </style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1085.0" data-gr-ext-installed="">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="App">
+            <div class="MuiBox-root css-1v6hr40"><a href="/signin"><svg width="47" height="25" viewBox="0 0 47 40"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M33.2917 26.6667L41.125 20M41.125 20L33.2917 13.3333M41.125 20H13.7083M25.4583 26.6667V28.3333C25.4583 29.6594 24.8394 30.9312 23.7376 31.8689C22.6358 32.8065 21.1415 33.3333 19.5833 33.3333H11.75C10.1919 33.3333 8.69752 32.8065 7.59575 31.8689C6.49397 30.9312 5.875 29.6594 5.875 28.3333V11.6667C5.875 10.3406 6.49397 9.0688 7.59575 8.13112C8.69752 7.19344 10.1919 6.66666 11.75 6.66666H19.5833C21.1415 6.66666 22.6358 7.19344 23.7376 8.13112C24.8394 9.0688 25.4583 10.3406 25.4583 11.6667V13.3333"
+                            stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></a> <div class="MuiBox-root css-in3yi3">Wake Up</div>
+            </div>
+            <div
+                style="box-shadow: rgba(56, 125, 255, 0.27) 0px 0px 20px; max-width: 600px; margin: auto; padding: 30px; border-radius: 20px;">
+                <div class="MuiBox-root css-16r0f0t"><a href="/Camera"
+                        style="text-decoration: none; color: white; width: 100%;">Start</a></div>
+                <div class="MuiBox-root css-xkrfhf">
+                    <div class="MuiBox-root css-8hlg7w">
+                        <div class="MuiBox-root css-1ig1701">
+                            <div class="MuiBox-root css-1ls2tw3">Today</div>
+                            <div class="MuiBox-root css-xeepnd">Mar, 9</div>
+                        </div>
+                        <div class="MuiBox-root css-102lqhp">
+                            <div class="MuiBox-root css-zkjmzk">29</div>
+                            <div class="MuiBox-root css-zkjmzk">26</div>
+                            <div class="MuiBox-root css-zkjmzk">26</div>
+                            <div class="MuiBox-root css-zkjmzk">23</div>
+                        </div>
+                        <div class="MuiBox-root css-102lqhp">
+                            <div class="MuiBox-root css-zkjmzk"><svg width="20" height="34" viewBox="0 0 35 34"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.3494 33.4424C9.00372 33.4424 0 28.2077 0 16.7212C0 5.23472 9.00372 0 17.3494 0C21.9858 0 26.2633 1.52555 29.4341 4.30743C32.874 7.35852 34.6987 11.6659 34.6987 16.7212C34.6987 21.7764 32.874 26.054 29.4341 29.105C26.2633 31.8869 21.9559 33.4424 17.3494 33.4424Z"
+                                        fill="url(#paint0_radial_19_208)"></path>
+                                    <path
+                                        d="M31.6745 6.78119C33.2689 9.35368 34.1005 12.4167 34.1005 15.8238C34.1005 20.879 32.2758 25.1566 28.8358 28.2076C25.6651 30.9895 21.3577 32.545 16.7511 32.545C11.3489 32.545 5.68341 30.3464 2.33917 25.683C5.55778 30.9656 11.6121 33.4424 17.3494 33.4424C21.9559 33.4424 26.2633 31.8869 29.4341 29.105C32.874 26.0539 34.6987 21.7764 34.6987 16.7212C34.6987 12.9103 33.6607 9.52418 31.6745 6.78119Z"
+                                        fill="#EB8F00"></path>
+                                    <path
+                                        d="M27.0171 3.03016L24.6062 6.23082C24.4865 6.38636 24.3011 6.4761 24.1036 6.46713L20.1013 6.29662C19.7723 6.28167 19.4911 6.53892 19.4762 6.86796C19.4702 6.99957 19.5091 7.1282 19.5838 7.23588L21.8841 10.5263C21.9948 10.6848 22.0217 10.8852 21.9559 11.0677L20.556 14.8247C20.4423 15.1358 20.6009 15.4798 20.909 15.5935C21.0316 15.6384 21.1632 15.6413 21.2889 15.6055L25.1207 14.4329C25.3091 14.376 25.5125 14.4149 25.6681 14.5376L28.8059 17.0293C29.0662 17.2327 29.4401 17.1908 29.6465 16.9306C29.7272 16.8259 29.7721 16.7003 29.7751 16.5686L29.8439 12.5633C29.8469 12.3659 29.9486 12.1834 30.1131 12.0758L33.4514 9.87119C33.7266 9.68872 33.8043 9.31781 33.6219 9.04261C33.5501 8.93193 33.4424 8.84818 33.3168 8.8063L29.5268 7.50211C29.3354 7.43929 29.1888 7.28374 29.135 7.08931L28.0701 3.22758C27.9803 2.91051 27.6483 2.72505 27.3312 2.81479C27.2056 2.85068 27.0949 2.92546 27.0171 3.03016Z"
+                                        fill="url(#paint1_radial_19_208)"></path>
+                                    <path
+                                        d="M28.1808 2.95839L29.0781 7.12224C29.1469 7.4423 29.3832 7.69955 29.6973 7.79228L33.6996 8.98879C33.9988 9.09648 34.1543 9.42551 34.0466 9.72464C34.0048 9.84429 33.924 9.943 33.8163 10.0118L30.2268 11.9621C29.9247 12.1147 29.7332 12.4258 29.7332 12.7638L29.7691 17.128C29.7601 17.4421 29.4969 17.6904 29.1798 17.6814C29.0542 17.6784 28.9316 17.6336 28.8358 17.5528L25.701 14.738C25.4587 14.5167 25.1147 14.4479 24.8036 14.5555L20.8252 15.9106C20.5201 15.9973 20.203 15.8208 20.1133 15.5157C20.0774 15.3961 20.0834 15.2675 20.1313 15.1508L21.8841 11.1515C22.0157 10.8464 21.9709 10.4964 21.7645 10.2361L19.2189 7.02652C19.0424 6.76029 19.1142 6.40433 19.3774 6.22486C19.4792 6.15606 19.6018 6.12315 19.7274 6.12914L23.8823 6.60176C24.2083 6.63765 24.5254 6.49407 24.7139 6.22785L27.1727 2.75199C27.3671 2.50073 27.7291 2.45586 27.9773 2.65328C28.079 2.73106 28.1478 2.83575 28.1808 2.95839Z"
+                                        fill="#F44336"></path>
+                                    <path
+                                        d="M27.2295 6.98162L27.5287 4.11001C27.5496 3.95147 27.5735 3.67627 27.8278 3.72712C28.0282 3.769 28.0491 4.20274 28.0491 4.20274L28.438 6.63763C28.5816 7.56193 28.3902 7.83414 28.0432 7.94182C27.6393 8.07643 27.1458 7.80422 27.2295 6.98162Z"
+                                        fill="#FF847A"></path>
+                                    <path
+                                        d="M29.9276 11.6659L32.7604 10.263C32.901 10.1853 33.1522 10.0686 33.0176 9.85024C32.9069 9.67974 32.4912 9.80836 32.4912 9.80836L30.1849 10.2062C29.5029 10.2959 29.0123 10.5352 28.8897 10.9391C28.7311 11.4595 29.135 11.983 29.9276 11.6659Z"
+                                        fill="#C62828"></path>
+                                    <path
+                                        d="M8.04651 2.24344L10.4395 5.75518C10.625 6.0244 10.9391 6.17097 11.2651 6.14106L15.429 5.73125C15.746 5.72228 16.0123 5.97056 16.0212 6.28763C16.0242 6.41027 15.9913 6.52992 15.9225 6.62863L13.3411 9.80835C13.1317 10.0656 13.0808 10.4156 13.2094 10.7207L14.8995 14.7439C15.0102 15.0401 14.8606 15.3721 14.5645 15.4828C14.4448 15.5277 14.3162 15.5307 14.1936 15.4948L10.2242 14.0799C9.91606 13.9692 9.57206 14.032 9.32678 14.2474L6.16201 17.0143C5.91673 17.2117 5.55778 17.1729 5.35736 16.9276C5.2766 16.8289 5.23173 16.7032 5.23173 16.5776L5.33044 12.2133C5.33942 11.8813 5.16293 11.5762 4.87577 11.4117L1.31616 9.40752C1.04695 9.246 0.957207 8.89303 1.12173 8.62381C1.19053 8.50715 1.3012 8.41741 1.42983 8.37554L5.45308 7.23287C5.76418 7.14612 6.00348 6.89486 6.08125 6.58077L7.03547 2.43189C7.12221 2.12678 7.43929 1.95029 7.7444 2.03704C7.86405 2.06994 7.97173 2.14472 8.04651 2.24344Z"
+                                        fill="#F44336"></path>
+                                    <path
+                                        d="M8.69263 6.32653L7.87302 3.55661C7.83413 3.40107 7.75038 3.13784 8.00164 3.08997C8.20206 3.05109 8.39051 3.44594 8.39051 3.44594L9.67077 5.53982C10.1583 6.34148 10.0806 6.66155 9.80239 6.89487C9.5242 7.12819 8.92595 7.11921 8.69263 6.32653Z"
+                                        fill="#FF847A"></path>
+                                    <path
+                                        d="M12.9642 9.61989L15.0581 7.24482C15.1598 7.12218 15.3572 6.91877 15.1358 6.76921C14.9713 6.64956 14.6363 6.92775 14.6363 6.92775L12.6531 8.17212C12.0548 8.51312 11.6929 8.91993 11.7348 9.3417C11.7856 9.89808 12.3539 10.2271 12.9642 9.61989Z"
+                                        fill="#C62828"></path>
+                                    <path
+                                        d="M28.8568 19.3296C28.438 18.5728 27.5287 18.2408 26.721 18.5459C23.652 19.4403 20.4693 19.886 17.2716 19.871C14.0739 19.886 10.8912 19.4403 7.82218 18.5459C7.01753 18.2408 6.10819 18.5698 5.68941 19.3236C5.2826 20.0744 5.57574 20.9449 5.91974 21.6957C7.84013 25.9134 12.0728 28.438 17.2477 28.453H17.2955C22.4704 28.453 26.7031 25.9134 28.6265 21.6957C28.9675 20.9389 29.2636 20.0804 28.8568 19.3296Z"
+                                        fill="#422B0D"></path>
+                                    <path
+                                        d="M22.0606 27.2624C21.9499 27.1607 21.8363 27.068 21.7226 26.9633C20.5021 25.8894 18.9228 25.3121 17.2955 25.345C15.6204 25.3181 13.9902 25.8745 12.683 26.9214C12.5693 27.0141 12.4496 27.1039 12.339 27.2205C12.2283 27.3372 12.1685 27.421 12.0967 27.5197C13.7419 28.1628 15.4948 28.4918 17.2626 28.4829H17.3105C19.0035 28.4829 20.6816 28.1807 22.267 27.5855C22.2072 27.4718 22.1384 27.3641 22.0606 27.2624Z"
+                                        fill="#ED7770"></path>
+                                    <path
+                                        d="M26.721 18.5459C23.652 19.4403 20.4692 19.886 17.2716 19.871C14.0739 19.886 10.8912 19.4403 7.82216 18.5459C7.01751 18.2408 6.10816 18.5698 5.68939 19.3236C5.62956 19.4373 5.5817 19.5569 5.55179 19.6796C5.6505 19.7304 5.76417 19.7813 5.89878 19.8351C9.50026 21.6388 13.4816 22.5542 17.5079 22.5063C21.3696 22.5512 25.1865 21.7106 28.6743 20.0535C28.8149 19.9936 28.9315 19.9368 29.0362 19.883C29.0123 19.6885 28.9495 19.4971 28.8568 19.3236C28.438 18.5698 27.5286 18.2378 26.721 18.5459Z"
+                                        fill="white"></path>
+                                    <path
+                                        d="M28.8687 19.3326C28.444 18.5758 27.5317 18.2408 26.718 18.5459C23.649 19.4403 20.4663 19.886 17.2716 19.871C14.0739 19.886 10.8912 19.4403 7.82218 18.5459C7.01753 18.2408 6.10819 18.5698 5.68941 19.3236C5.2826 20.0744 5.57574 20.9449 5.91974 21.6957C6.07229 22.0337 6.24279 22.3657 6.43124 22.6858C6.43124 22.6858 5.80308 20.3586 6.34749 19.6826C6.53295 19.3954 6.84404 19.2159 7.18504 19.198C7.32563 19.198 7.46323 19.2219 7.59784 19.2638C10.7207 20.1821 13.9603 20.6458 17.2178 20.6398H17.3225C20.5799 20.6458 23.8195 20.1821 26.9424 19.2638C27.077 19.2219 27.2146 19.198 27.3552 19.198C27.6962 19.2159 28.0103 19.3954 28.1957 19.6826C28.7491 20.3586 28.112 22.6948 28.112 22.6948C28.2974 22.3747 28.4829 22.0457 28.6384 21.7047C28.9794 20.9539 29.2756 20.0864 28.8687 19.3326Z"
+                                        fill="#EB8F00"></path>
+                                    <defs>
+                                        <radialGradient id="paint0_radial_19_208" cx="0" cy="0" r="1"
+                                            gradientUnits="userSpaceOnUse"
+                                            gradientTransform="translate(17.3494 16.7212) scale(17.0382)">
+                                            <stop offset="0.5" stop-color="#FDE030"></stop>
+                                            <stop offset="0.92" stop-color="#F7C02B"></stop>
+                                            <stop offset="1" stop-color="#F4A223"></stop>
+                                        </radialGradient>
+                                        <radialGradient id="paint1_radial_19_208" cx="0" cy="0" r="1"
+                                            gradientUnits="userSpaceOnUse"
+                                            gradientTransform="translate(26.5984 9.97529) scale(7.15239)">
+                                            <stop offset="0.2" stop-color="#FF4081"></stop>
+                                            <stop offset="0.88" stop-color="#CC1775"></stop>
+                                        </radialGradient>
+                                    </defs>
+                                </svg></div>
+                            <div class="MuiBox-root css-zkjmzk"><svg width="20" height="34" viewBox="0 0 35 34"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.3494 33.4424C9.00372 33.4424 0 28.2077 0 16.7212C0 5.23472 9.00372 0 17.3494 0C21.9858 0 26.2633 1.52555 29.4341 4.30743C32.874 7.35852 34.6987 11.6659 34.6987 16.7212C34.6987 21.7764 32.874 26.054 29.4341 29.105C26.2633 31.8869 21.9559 33.4424 17.3494 33.4424Z"
+                                        fill="url(#paint0_radial_19_217)"></path>
+                                    <path
+                                        d="M31.6745 6.78119C33.2689 9.35368 34.1005 12.4167 34.1005 15.8238C34.1005 20.879 32.2758 25.1566 28.8358 28.2076C25.6651 30.9895 21.3577 32.545 16.7511 32.545C11.3489 32.545 5.68341 30.3464 2.33917 25.683C5.55778 30.9656 11.6121 33.4424 17.3494 33.4424C21.9559 33.4424 26.2633 31.8869 29.4341 29.105C32.874 26.0539 34.6987 21.7764 34.6987 16.7212C34.6987 12.9103 33.6607 9.52418 31.6745 6.78119Z"
+                                        fill="#EB8F00"></path>
+                                    <path
+                                        d="M24.9472 24.2293H9.99085C9.32978 24.2293 8.79434 23.6938 8.79434 23.0328C8.79434 22.3717 9.32978 21.8362 9.99085 21.8362H24.9472C25.6083 21.8362 26.1437 22.3717 26.1437 23.0328C26.1437 23.6938 25.6083 24.2293 24.9472 24.2293Z"
+                                        fill="#422B0D"></path>
+                                    <path
+                                        d="M11.6869 11.648C10.4335 11.648 9.29385 12.7069 9.29385 14.4658C9.29385 16.2247 10.4335 17.2806 11.6869 17.2806C12.9402 17.2806 14.0799 16.2217 14.0799 14.4658C14.0799 12.7099 12.9402 11.648 11.6869 11.648Z"
+                                        fill="#422B0D"></path>
+                                    <path
+                                        d="M11.5702 12.8236C11.1455 12.6202 10.634 12.7996 10.4276 13.2244C10.269 13.5564 10.3408 13.9543 10.6071 14.2115C11.0318 14.4149 11.5433 14.2355 11.7497 13.8107C11.9083 13.4787 11.8365 13.0808 11.5702 12.8236Z"
+                                        fill="#896024"></path>
+                                    <path
+                                        d="M23.1524 11.648C21.8991 11.648 20.7594 12.7069 20.7594 14.4658C20.7594 16.2247 21.8991 17.2806 23.1524 17.2806C24.4058 17.2806 25.5454 16.2217 25.5454 14.4658C25.5454 12.7099 24.4117 11.648 23.1524 11.648Z"
+                                        fill="#422B0D"></path>
+                                    <path
+                                        d="M23.0417 12.8236C22.617 12.6202 22.1055 12.7996 21.8991 13.2244C21.7405 13.5564 21.8123 13.9543 22.0785 14.2115C22.5033 14.4149 23.0148 14.2355 23.2212 13.8107C23.3798 13.4787 23.308 13.0808 23.0417 12.8236Z"
+                                        fill="#896024"></path>
+                                    <defs>
+                                        <radialGradient id="paint0_radial_19_217" cx="0" cy="0" r="1"
+                                            gradientUnits="userSpaceOnUse"
+                                            gradientTransform="translate(17.3494 16.7212) scale(17.0382)">
+                                            <stop offset="0.5" stop-color="#FDE030"></stop>
+                                            <stop offset="0.92" stop-color="#F7C02B"></stop>
+                                            <stop offset="1" stop-color="#F4A223"></stop>
+                                        </radialGradient>
+                                    </defs>
+                                </svg></div>
+                            <div class="MuiBox-root css-zkjmzk"><svg width="20" height="34" viewBox="0 0 35 34"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.3494 33.4424C9.00372 33.4424 0 28.2077 0 16.7212C0 5.23472 9.00372 0 17.3494 0C21.9858 0 26.2633 1.52555 29.4341 4.30743C32.874 7.35852 34.6987 11.6659 34.6987 16.7212C34.6987 21.7764 32.874 26.054 29.4341 29.105C26.2633 31.8869 21.9559 33.4424 17.3494 33.4424Z"
+                                        fill="url(#paint0_radial_19_235)"></path>
+                                    <path
+                                        d="M31.6745 6.78119C33.2689 9.35368 34.1005 12.4167 34.1005 15.8238C34.1005 20.879 32.2758 25.1566 28.8358 28.2076C25.6651 30.9895 21.3577 32.545 16.7511 32.545C11.3489 32.545 5.68341 30.3464 2.33917 25.683C5.55778 30.9656 11.6121 33.4424 17.3494 33.4424C21.9559 33.4424 26.2633 31.8869 29.4341 29.105C32.874 26.0539 34.6987 21.7764 34.6987 16.7212C34.6987 12.9103 33.6607 9.52418 31.6745 6.78119Z"
+                                        fill="#EB8F00"></path>
+                                    <path
+                                        d="M24.9472 24.2293H9.99085C9.32978 24.2293 8.79434 23.6938 8.79434 23.0328C8.79434 22.3717 9.32978 21.8362 9.99085 21.8362H24.9472C25.6083 21.8362 26.1437 22.3717 26.1437 23.0328C26.1437 23.6938 25.6083 24.2293 24.9472 24.2293Z"
+                                        fill="#422B0D"></path>
+                                    <path
+                                        d="M11.6869 11.648C10.4335 11.648 9.29387 12.7069 9.29387 14.4658C9.29387 16.2247 10.4335 17.2806 11.6869 17.2806C12.9402 17.2806 14.0799 16.2217 14.0799 14.4658C14.0799 12.7099 12.9402 11.648 11.6869 11.648Z"
+                                        fill="#422B0D"></path>
+                                    <path
+                                        d="M11.5702 12.8236C11.1455 12.6202 10.634 12.7996 10.4276 13.2244C10.269 13.5564 10.3408 13.9543 10.607 14.2115C11.0318 14.4149 11.5433 14.2355 11.7497 13.8107C11.9082 13.4787 11.8364 13.0808 11.5702 12.8236Z"
+                                        fill="#896024"></path>
+                                    <path
+                                        d="M23.1524 11.648C21.8991 11.648 20.7594 12.7069 20.7594 14.4658C20.7594 16.2247 21.8991 17.2806 23.1524 17.2806C24.4058 17.2806 25.5454 16.2217 25.5454 14.4658C25.5454 12.7099 24.4117 11.648 23.1524 11.648Z"
+                                        fill="#422B0D"></path>
+                                    <path
+                                        d="M23.0418 12.8236C22.617 12.6202 22.1055 12.7996 21.8991 13.2244C21.7405 13.5564 21.8123 13.9543 22.0786 14.2115C22.5033 14.4149 23.0148 14.2355 23.2212 13.8107C23.3798 13.4787 23.308 13.0808 23.0418 12.8236Z"
+                                        fill="#896024"></path>
+                                    <defs>
+                                        <radialGradient id="paint0_radial_19_235" cx="0" cy="0" r="1"
+                                            gradientUnits="userSpaceOnUse"
+                                            gradientTransform="translate(17.3494 16.7212) scale(17.0382)">
+                                            <stop offset="0.5" stop-color="#FDE030"></stop>
+                                            <stop offset="0.92" stop-color="#F7C02B"></stop>
+                                            <stop offset="1" stop-color="#F4A223"></stop>
+                                        </radialGradient>
+                                    </defs>
+                                </svg></div>
+                            <div class="MuiBox-root css-zkjmzk"><svg width="20" height="34" viewBox="0 0 35 34"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.0086 33.6916C8.82688 33.6916 0 28.5597 0 17.2988C0 6.03791 8.82688 0.906006 17.0086 0.906006C21.554 0.906006 25.7475 2.40159 28.856 5.12883C32.2284 8.12 34.0172 12.3428 34.0172 17.2988C34.0172 22.2547 32.2284 26.4482 28.856 29.4394C25.7475 32.1667 21.5247 33.6916 17.0086 33.6916Z"
+                                        fill="url(#paint0_radial_19_228)"></path>
+                                    <path
+                                        d="M31.0524 7.55402C32.6155 10.076 33.4307 13.0789 33.4307 16.419C33.4307 21.375 31.6419 25.5685 28.2695 28.5596C25.161 31.2869 20.9382 32.8118 16.4221 32.8118C11.126 32.8118 5.57178 30.6564 2.29323 26.0846C5.44862 31.2634 11.384 33.6916 17.0086 33.6916C21.5247 33.6916 25.7475 32.1666 28.856 29.4394C32.2284 26.4482 34.0172 22.2547 34.0172 17.2988C34.0172 13.5627 32.9996 10.2431 31.0524 7.55402Z"
+                                        fill="#EB8F00"></path>
+                                    <path
+                                        d="M12.6098 14.8941L12.5512 14.9527L12.4045 15.0994C12.3459 15.158 12.2872 15.1873 12.1993 15.2753C12.1054 15.3516 12.0087 15.419 11.906 15.4806C11.7887 15.5392 11.6714 15.6272 11.5541 15.6859C11.4368 15.7445 11.2902 15.8032 11.1436 15.8618C10.9999 15.9146 10.8532 15.9527 10.7037 15.9791C10.5483 16.0055 10.3928 16.0143 10.2345 16.0084H9.97056C9.90018 16.0143 9.8298 16.0026 9.76528 15.9791C9.61572 15.9527 9.4691 15.9146 9.3254 15.8618C9.18464 15.8149 9.04681 15.7563 8.91485 15.6859C8.79755 15.6272 8.68025 15.5392 8.56295 15.4806C8.35767 15.334 8.18172 15.1873 8.06442 15.0994L7.88847 14.9234L7.82982 14.8648C7.45152 14.5246 6.88555 14.5011 6.48086 14.8061C6.19641 15.029 6.09963 15.4161 6.24626 15.7445L6.30491 15.8325C6.33717 15.9146 6.37822 15.9909 6.42221 16.0671C6.60109 16.3691 6.8181 16.6448 7.06737 16.8882C7.24038 17.0583 7.42806 17.2166 7.62454 17.3574C7.85621 17.5187 8.09961 17.6565 8.35767 17.768C8.63919 17.897 8.93538 17.9938 9.23743 18.0612L9.73596 18.1492C9.82393 18.1492 9.94123 18.1785 9.97056 18.1785H10.2052C10.5307 18.1785 10.8532 18.1492 11.1729 18.0905C11.4779 18.029 11.7711 17.9292 12.0526 17.7973C12.3107 17.6858 12.5541 17.548 12.7858 17.3867C12.9911 17.2548 13.1787 17.0964 13.343 16.9175C13.4866 16.7856 13.6157 16.6389 13.7242 16.4777C13.7828 16.419 13.8122 16.331 13.8708 16.2724C13.9295 16.2137 13.9588 16.1551 13.9881 16.0964C14.038 16.026 14.079 15.9469 14.1054 15.8618L14.1347 15.8032C14.3166 15.3926 14.1289 14.9088 13.7183 14.7269C13.6831 14.7123 13.645 14.6976 13.6069 14.6888C13.2638 14.5393 12.865 14.6214 12.6098 14.8941Z"
+                                        fill="#422B0D"></path>
+                                    <path
+                                        d="M25.7768 14.8941L25.7182 14.9527L25.5716 15.0994C25.5129 15.158 25.4543 15.1873 25.3663 15.2753C25.2725 15.3516 25.1757 15.419 25.073 15.4806C24.9557 15.5392 24.8384 15.6272 24.7211 15.6859C24.6038 15.7445 24.4572 15.8032 24.3106 15.8618C24.1669 15.9146 24.0203 15.9527 23.8707 15.9791C23.7153 16.0055 23.5599 16.0143 23.4015 16.0084H23.1376C23.0672 16.0114 22.9998 15.9997 22.9323 15.9791C22.7827 15.9527 22.6361 15.9146 22.4924 15.8618C22.3517 15.8149 22.2138 15.7563 22.0819 15.6859C21.9646 15.6272 21.8473 15.5392 21.73 15.4806C21.5247 15.334 21.3487 15.1873 21.2314 15.0994L21.0555 14.9234L20.9968 14.8648C20.6185 14.5246 20.0526 14.5011 19.6479 14.8061C19.3634 15.029 19.2667 15.4161 19.4133 15.7445L19.4719 15.8325C19.5042 15.9146 19.5452 15.9909 19.5892 16.0671C19.7681 16.3691 19.9851 16.6448 20.2344 16.8882C20.4074 17.0583 20.5951 17.2166 20.7916 17.3574C21.0232 17.5187 21.2666 17.6565 21.5247 17.768C21.8062 17.897 22.1024 17.9938 22.4045 18.0612L22.903 18.1492C22.991 18.1492 23.1083 18.1785 23.1376 18.1785H23.3722C23.6977 18.1785 24.0203 18.1492 24.3399 18.0905C24.6449 18.029 24.9381 17.9292 25.2197 17.7973C25.4777 17.6858 25.7211 17.548 25.9528 17.3867C26.1639 17.2606 26.3516 17.1023 26.51 16.9175C26.6537 16.7856 26.7827 16.6389 26.8912 16.4777C26.9499 16.419 26.9792 16.331 27.0378 16.2724C27.0965 16.2137 27.1258 16.1551 27.1551 16.0964C27.205 16.026 27.246 15.9469 27.2724 15.8618L27.3018 15.8032C27.4836 15.3926 27.2959 14.9088 26.8853 14.7269C26.8501 14.7123 26.812 14.6976 26.7739 14.6888C26.4308 14.5393 26.032 14.6214 25.7768 14.8941Z"
+                                        fill="#422B0D"></path>
+                                    <path
+                                        d="M20.9968 5.18748C20.8971 5.13176 20.7886 5.09071 20.6742 5.07018C20.5569 5.01153 20.4103 4.98221 20.293 4.92356L19.6772 4.7476C19.4426 4.65963 19.1787 4.60098 18.9441 4.513C18.4749 4.36638 17.8884 3.98515 17.5951 4.65963C17.5159 4.80332 17.4749 4.96461 17.4778 5.12883C17.4778 5.36343 17.6538 5.48073 17.859 5.56871C18.076 5.66548 18.3018 5.74173 18.5335 5.80331C18.6068 5.84143 18.686 5.85903 18.7681 5.86196C18.8268 5.86196 18.8854 5.89129 18.8854 5.94994C18.8854 6.00859 18.8268 6.00859 18.7974 6.03791C18.7681 6.06724 18.6801 6.12589 18.6215 6.15521L18.5335 6.21386C18.3752 6.33116 18.208 6.43967 18.035 6.53644C17.9177 6.62442 17.7711 6.71239 17.6538 6.80037C17.5892 6.82969 17.5306 6.86781 17.4778 6.91767C17.3048 7.03497 17.1376 7.164 16.9793 7.29889L16.9206 7.35755C16.7623 7.48364 16.6479 7.65959 16.598 7.85607C16.5687 8.12 16.774 8.2373 17.0086 8.3546L17.2725 8.44258C17.5804 8.55695 17.8942 8.65665 18.2109 8.73583C18.4455 8.8238 18.7095 8.88245 18.9441 8.97043C19.4133 9.11706 19.9998 9.49828 20.293 8.8238C20.3722 8.68011 20.4133 8.51882 20.4103 8.3546C20.381 8.14639 20.2314 7.97337 20.0291 7.91472C19.8121 7.81795 19.5863 7.74171 19.3546 7.68012C19.296 7.68012 19.2666 7.6508 19.208 7.62147C19.1493 7.59215 19.12 7.59215 19.0907 7.59215C19.032 7.5335 19.1493 7.47485 19.1787 7.44552C19.3018 7.37807 19.4191 7.29889 19.5306 7.21092C19.6537 7.13174 19.771 7.04377 19.8825 6.94699C19.9411 6.91767 19.9998 6.85902 20.0584 6.82969C20.1757 6.74172 20.3223 6.65374 20.4396 6.56577C20.7622 6.30184 21.4954 5.97926 21.2608 5.48073C21.1992 5.36343 21.1083 5.26079 20.9968 5.18748Z"
+                                        fill="#5F7AFF"></path>
+                                    <path
+                                        d="M26.8325 2.40162C26.7211 2.34883 26.6009 2.31071 26.4806 2.28432C26.334 2.25499 26.1874 2.19634 26.0408 2.16701C25.8062 2.10836 25.5716 2.07904 25.3663 2.02039C25.1024 1.96174 24.8091 1.87376 24.5452 1.81511C24.0173 1.69781 23.3428 1.34591 23.0789 2.10836C23.0085 2.27552 22.9763 2.4544 22.9909 2.63622C23.0203 2.90014 23.2255 3.01744 23.4601 3.0761C23.7006 3.15821 23.944 3.22565 24.1933 3.28137C24.2812 3.3107 24.3692 3.3107 24.4572 3.34002C24.5452 3.36935 24.5745 3.36935 24.5745 3.428C24.5745 3.48665 24.5158 3.51597 24.4865 3.5453C24.4572 3.57462 24.3692 3.63327 24.3106 3.69192C24.2519 3.75057 24.2519 3.72125 24.2226 3.75057C24.0466 3.8972 23.8707 4.0145 23.6947 4.16113L23.2842 4.4837C23.2255 4.51303 23.1669 4.57168 23.1082 4.60101C22.9323 4.74763 22.7563 4.89426 22.6097 5.04088C22.5804 5.07021 22.5511 5.07021 22.5511 5.09953C22.3722 5.24616 22.2578 5.4573 22.2285 5.68604C22.2285 5.97929 22.4631 6.09659 22.727 6.21389L23.0203 6.30187C23.3575 6.40744 23.7006 6.49541 24.0466 6.56579C24.3106 6.62444 24.6038 6.71242 24.8678 6.77107C25.3956 6.88837 26.0701 7.24027 26.334 6.47782C26.4044 6.31066 26.4366 6.13178 26.422 5.94996C26.3927 5.68604 26.1874 5.56874 25.9528 5.51009C25.7035 5.42504 25.4484 5.35466 25.1903 5.30481C25.1317 5.30481 25.073 5.27548 25.0144 5.27548C24.9557 5.27548 24.8971 5.27548 24.8678 5.24616C24.8384 5.21683 24.9264 5.12886 24.9557 5.09953C25.073 5.01156 25.1903 4.92358 25.337 4.80628L25.7182 4.51303C25.7827 4.45731 25.8501 4.40746 25.9235 4.3664C26.0672 4.2667 26.202 4.1582 26.334 4.04383C26.6566 3.72125 27.4484 3.34002 27.1258 2.78284C27.0877 2.61862 26.9792 2.48079 26.8325 2.40162Z"
+                                        fill="#5F7AFF"></path>
+                                    <path
+                                        d="M34.6037 1.49251C34.4923 1.30483 34.331 1.14941 34.1345 1.05263C33.982 0.991051 33.8266 0.941198 33.6653 0.906008C33.4747 0.844425 33.2782 0.794572 33.0788 0.759382C32.7855 0.671407 32.463 0.612756 32.1697 0.554106C31.8178 0.46613 31.4366 0.34883 31.0847 0.260854C30.3809 0.0849029 29.5011 -0.3843 29.1199 0.642081C29.0231 0.864953 28.985 1.10542 29.0026 1.34589C29.0554 1.65673 29.3076 1.89427 29.6184 1.93239C29.9469 2.03796 30.2782 2.12594 30.6155 2.19632C30.7328 2.22564 30.8501 2.25497 30.9381 2.28429C31.026 2.31362 31.114 2.31362 31.114 2.40159C31.1023 2.46611 31.0583 2.52183 30.9967 2.54822C30.9087 2.60687 30.8501 2.66552 30.7621 2.72417C30.7299 2.75936 30.6888 2.79162 30.6448 2.81214C30.4102 2.9881 30.1756 3.16405 29.9703 3.34L29.4425 3.77988C29.3692 3.84439 29.29 3.90304 29.2079 3.95583C28.9733 4.13178 28.768 4.33705 28.5334 4.54233L28.4454 4.63031C28.2108 4.81799 28.0613 5.09364 28.0349 5.39276C28.0349 5.77399 28.3574 5.94994 28.7093 6.09657C28.8325 6.14935 28.9586 6.18747 29.0906 6.21387H29.1199C29.5598 6.36049 30.029 6.44847 30.4982 6.56577L31.5832 6.8297C32.287 7.00565 33.1961 7.47485 33.548 6.44847C33.6448 6.2256 33.6829 5.98513 33.6653 5.74466C33.6125 5.43382 33.3603 5.19628 33.0495 5.15816C32.7269 5.03499 32.3926 4.93529 32.0524 4.86491C31.9644 4.83558 31.9058 4.83558 31.8178 4.80626C31.7533 4.80626 31.6946 4.78573 31.6419 4.74761C31.5539 4.65963 31.7005 4.57166 31.7592 4.54233C31.9322 4.42503 32.0993 4.296 32.2577 4.1611C32.4336 4.01448 32.6096 3.89718 32.7562 3.75055C32.8501 3.6919 32.941 3.62152 33.0201 3.54527C33.2078 3.41624 33.3867 3.26669 33.548 3.1054C33.9879 2.72417 35.0143 2.19632 34.6037 1.49251Z"
+                                        fill="#5F7AFF"></path>
+                                    <path
+                                        d="M14.6919 27.9732C13.5688 27.9526 12.6744 27.023 12.6949 25.8999C12.7007 25.5216 12.8151 25.1521 13.0204 24.8354C13.9295 23.4278 15.3664 22.6946 17.1259 22.6946C18.8854 22.6946 20.3224 23.4278 21.2314 24.8354C21.6391 25.4512 21.6713 26.2401 21.3194 26.8881C20.9704 27.5392 20.2989 27.9556 19.5599 27.9732C19.3282 27.979 19.0995 27.9409 18.8854 27.8559C18.3195 27.6594 17.7242 27.5597 17.1259 27.5626C16.5277 27.5568 15.9324 27.6565 15.3664 27.8559C15.1494 27.9351 14.9207 27.9761 14.6919 27.9732Z"
+                                        fill="#422B0D"></path>
+                                    <defs>
+                                        <radialGradient id="paint0_radial_19_228" cx="0" cy="0" r="1"
+                                            gradientUnits="userSpaceOnUse"
+                                            gradientTransform="translate(17.0086 17.2988) scale(16.7035 16.7035)">
+                                            <stop offset="0.5" stop-color="#FDE030"></stop>
+                                            <stop offset="0.92" stop-color="#F7C02B"></stop>
+                                            <stop offset="1" stop-color="#F4A223"></stop>
+                                        </radialGradient>
+                                    </defs>
+                                </svg></div>
+                        </div>
+                        <div class="MuiBox-root css-102lqhp">
+                            <div class="MuiBox-root css-zkjmzk">29</div>
+                            <div class="MuiBox-root css-zkjmzk">26</div>
+                            <div class="MuiBox-root css-zkjmzk">26</div>
+                            <div class="MuiBox-root css-zkjmzk">23</div>
+                        </div>
+                    </div>
+                    <div class="MuiBox-root css-vvq7ig">Your recent blink activity</div><br><br>
+                    <div class="MuiBox-root css-12talox">
+                        <div class="MuiBox-root css-19pryom">
+                            <div class="MuiBox-root css-9m6kit">
+                                <div class="MuiBox-root css-1uzv6oc">Total Blinks</div>
+                                <div class="MuiBox-root css-1uzv6oc"><b>2040</b></div>
+                            </div>
+                            <div class="MuiBox-root css-1438wr9"><svg width="25" height="25" viewBox="0 0 25 25"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M24.8489 11.8664C22.4952 7.27395 17.8355 4.16675 12.5 4.16675C7.16447 4.16675 2.50345 7.27612 0.151018 11.8668C0.0517306 12.0632 0 12.2802 0 12.5003C0 12.7204 0.0517306 12.9374 0.151018 13.1338C2.50475 17.7262 7.16447 20.8334 12.5 20.8334C17.8355 20.8334 22.4965 17.724 24.8489 13.1333C24.9482 12.9369 25 12.7199 25 12.4999C25 12.2798 24.9482 12.0628 24.8489 11.8664ZM12.5 18.7501C11.2638 18.7501 10.0555 18.3835 9.02766 17.6968C7.99985 17.01 7.19878 16.0339 6.72573 14.8919C6.25268 13.7498 6.12891 12.4931 6.37007 11.2808C6.61123 10.0684 7.20648 8.95474 8.08056 8.08066C8.95464 7.20659 10.0683 6.61133 11.2807 6.37017C12.493 6.12902 13.7497 6.25279 14.8917 6.72583C16.0338 7.19888 17.0099 7.99996 17.6967 9.02777C18.3834 10.0556 18.75 11.2639 18.75 12.5001C18.7504 13.321 18.589 14.1339 18.275 14.8923C17.9611 15.6508 17.5007 16.3399 16.9203 16.9204C16.3398 17.5008 15.6507 17.9612 14.8922 18.2751C14.1338 18.5891 13.3208 18.7505 12.5 18.7501ZM12.5 8.33341C12.1281 8.33861 11.7586 8.39394 11.4015 8.49791C11.6958 8.89794 11.8371 9.39022 11.7996 9.88547C11.7621 10.3807 11.5484 10.8462 11.1972 11.1973C10.846 11.5485 10.3806 11.7623 9.88537 11.7997C9.39012 11.8372 8.89784 11.6959 8.49781 11.4016C8.27001 12.2408 8.31113 13.1303 8.61538 13.945C8.91962 14.7596 9.47167 15.4583 10.1938 15.9428C10.916 16.4272 11.7719 16.673 12.641 16.6456C13.5102 16.6181 14.3489 16.3188 15.039 15.7897C15.7291 15.2606 16.236 14.5285 16.4882 13.6963C16.7404 12.864 16.7253 11.9737 16.445 11.1505C16.1647 10.3273 15.6333 9.61277 14.9256 9.10742C14.2179 8.60207 13.3696 8.33137 12.5 8.33341Z"
+                                        fill="black"></path>
+                                </svg></div>
+                        </div>
+                        <div class="MuiBox-root css-1rzdnss">
+                            <div class="MuiBox-root css-0"><svg width="20" height="12" viewBox="0 0 20 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 0L16.29 2.29L11.41 7.17L7.41 3.17L0 10.59L1.41 12L7.41 6L11.41 10L17.71 3.71L20 6V0H14Z"
+                                        fill="#00B69B"></path>
+                                </svg></div>
+                            <div class="MuiBox-root css-0"><span style="color: rgb(0, 182, 155);">1.8% </span> Improved
+                                from yesterday</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="MuiBox-root css-46b038">
+                    <div class="MuiBox-root css-1x4236u">Developed with love by</div>
+                    <div class="MuiBox-root css-1q7njkh"><b>AlphaX</b></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+</html>

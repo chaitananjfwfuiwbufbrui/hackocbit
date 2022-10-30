@@ -1,0 +1,628 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Signup </title>
+    <script defer="" src="/static/js/bundle.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        code {
+            font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+        }
+        /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxTQUFTO0VBQ1Q7O2NBRVk7RUFDWixtQ0FBbUM7RUFDbkMsa0NBQWtDO0FBQ3BDOztBQUVBO0VBQ0U7YUFDVztBQUNiIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgJ1JvYm90bycsICdPeHlnZW4nLFxuICAgICdVYnVudHUnLCAnQ2FudGFyZWxsJywgJ0ZpcmEgU2FucycsICdEcm9pZCBTYW5zJywgJ0hlbHZldGljYSBOZXVlJyxcbiAgICBzYW5zLXNlcmlmO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbn1cblxuY29kZSB7XG4gIGZvbnQtZmFtaWx5OiBzb3VyY2UtY29kZS1wcm8sIE1lbmxvLCBNb25hY28sIENvbnNvbGFzLCAnQ291cmllciBOZXcnLFxuICAgIG1vbm9zcGFjZTtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */
+    </style>
+    <style>
+        .App {
+            text-align: center;
+        }
+        
+        .App-logo {
+            height: 40vmin;
+            pointer-events: none;
+        }
+        
+        @media (prefers-reduced-motion: no-preference) {
+            .App-logo {
+                animation: App-logo-spin infinite 20s linear;
+            }
+        }
+        
+        .App-header {
+            background-color: #282c34;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: white;
+        }
+        
+        .App-link {
+            color: #61dafb;
+        }
+        
+        @keyframes App-logo-spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9BcHAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsY0FBYztFQUNkLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFO0lBQ0UsNENBQTRDO0VBQzlDO0FBQ0Y7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsbUJBQW1CO0VBQ25CLHVCQUF1QjtFQUN2Qiw2QkFBNkI7RUFDN0IsWUFBWTtBQUNkOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTtFQUNFO0lBQ0UsdUJBQXVCO0VBQ3pCO0VBQ0E7SUFDRSx5QkFBeUI7RUFDM0I7QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIi5BcHAge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5BcHAtbG9nbyB7XG4gIGhlaWdodDogNDB2bWluO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuQG1lZGlhIChwcmVmZXJzLXJlZHVjZWQtbW90aW9uOiBuby1wcmVmZXJlbmNlKSB7XG4gIC5BcHAtbG9nbyB7XG4gICAgYW5pbWF0aW9uOiBBcHAtbG9nby1zcGluIGluZmluaXRlIDIwcyBsaW5lYXI7XG4gIH1cbn1cblxuLkFwcC1oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xuICBtaW4taGVpZ2h0OiAxMDB2aDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogY2FsYygxMHB4ICsgMnZtaW4pO1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5BcHAtbGluayB7XG4gIGNvbG9yOiAjNjFkYWZiO1xufVxuXG5Aa2V5ZnJhbWVzIEFwcC1sb2dvLXNwaW4ge1xuICBmcm9tIHtcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTtcbiAgfVxuICB0byB7XG4gICAgdHJhbnNmb3JtOiByb3RhdGUoMzYwZGVnKTtcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */
+    </style>
+    <style data-emotion="css-global" data-s="">
+        @-webkit-keyframes mui-auto-fill {
+            from {
+                display: block;
+            }
+        }
+    </style>
+    <style data-emotion="css-global" data-s="">
+        @keyframes mui-auto-fill {
+            from {
+                display: block;
+            }
+        }
+    </style>
+    <style data-emotion="css-global" data-s="">
+        @-webkit-keyframes mui-auto-fill-cancel {
+            from {
+                display: block;
+            }
+        }
+    </style>
+    <style data-emotion="css-global" data-s="">
+        @keyframes mui-auto-fill-cancel {
+            from {
+                display: block;
+            }
+        }
+    </style>
+    <style data-emotion="css-global" data-s="">
+        @-webkit-keyframes mui-auto-fill {
+            from {
+                display: block;
+            }
+        }
+    </style>
+    <style data-emotion="css-global" data-s="">
+        @keyframes mui-auto-fill {
+            from {
+                display: block;
+            }
+        }
+    </style>
+    <style data-emotion="css-global" data-s="">
+        @-webkit-keyframes mui-auto-fill-cancel {
+            from {
+                display: block;
+            }
+        }
+    </style>
+    <style data-emotion="css-global" data-s="">
+        @keyframes mui-auto-fill-cancel {
+            from {
+                display: block;
+            }
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1v6hr40 {
+            padding: 20px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-in3yi3 {
+            font-weight: bold;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9zfxb7 {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-flex-flow: column;
+            -webkit-flex-flow: column;
+            -ms-flex-flow: column;
+            flex-flow: column;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1g4erk3 {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9dygkv {
+            font-weight: bold;
+            opacity: 0.8;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t9rtxh-MuiTextField-root {
+            width: 80%;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-w3s1g-MuiFormControl-root-MuiTextField-root {
+            display: -webkit-inline-box;
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            position: relative;
+            min-width: 0;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            vertical-align: top;
+            width: 80%;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1x92c1k-MuiInputLabel-root {
+            display: block;
+            transform-origin: top left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: calc(100% - 24px);
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate(14px, 16px) scale(1);
+            -moz-transform: translate(14px, 16px) scale(1);
+            -ms-transform: translate(14px, 16px) scale(1);
+            transform: translate(14px, 16px) scale(1);
+            -webkit-transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+            color: rgba(0, 0, 0, 0.6);
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.4375em;
+            letter-spacing: 0.00938em;
+            padding: 0;
+            position: relative;
+            display: block;
+            transform-origin: top left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: calc(100% - 24px);
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate(14px, 16px) scale(1);
+            -moz-transform: translate(14px, 16px) scale(1);
+            -ms-transform: translate(14px, 16px) scale(1);
+            transform: translate(14px, 16px) scale(1);
+            -webkit-transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            transition: color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+            color: #1976d2;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-disabled {
+            color: rgba(0, 0, 0, 0.38);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root.Mui-error {
+            color: #d32f2f;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.4375em;
+            letter-spacing: 0.00938em;
+            color: rgba(0, 0, 0, 0.87);
+            box-sizing: border-box;
+            position: relative;
+            cursor: text;
+            display: -webkit-inline-box;
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: relative;
+            border-radius: 4px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-disabled {
+            color: rgba(0, 0, 0, 0.38);
+            cursor: default;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+            border-color: rgba(0, 0, 0, 0.87);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        @media (hover: none) {
+            .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+                border-color: rgba(0, 0, 0, 0.23);
+            }
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: #1976d2;
+            border-width: 2px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline {
+            border-color: #d32f2f;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-disabled .MuiOutlinedInput-notchedOutline {
+            border-color: rgba(0, 0, 0, 0.26);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+            font: inherit;
+            letter-spacing: inherit;
+            color: currentColor;
+            padding: 4px 0 5px;
+            border: 0;
+            box-sizing: content-box;
+            background: none;
+            height: 1.4375em;
+            margin: 0;
+            -webkit-tap-highlight-color: transparent;
+            display: block;
+            min-width: 0;
+            width: 100%;
+            -webkit-animation-name: mui-auto-fill-cancel;
+            animation-name: mui-auto-fill-cancel;
+            -webkit-animation-duration: 10ms;
+            animation-duration: 10ms;
+            padding: 16.5px 14px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-input-placeholder {
+            color: currentColor;
+            opacity: 0.42;
+            -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-moz-placeholder {
+            color: currentColor;
+            opacity: 0.42;
+            -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-ms-input-placeholder {
+            color: currentColor;
+            opacity: 0.42;
+            -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-ms-input-placeholder {
+            color: currentColor;
+            opacity: 0.42;
+            -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus {
+            outline: 0;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:invalid {
+            box-shadow: none;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-search-decoration {
+            -webkit-appearance: none;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {}
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-webkit-input-placeholder {
+            opacity: 0 !important;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-moz-placeholder {
+            opacity: 0 !important;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-ms-input-placeholder {
+            opacity: 0 !important;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input::-ms-input-placeholder {
+            opacity: 0 !important;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-webkit-input-placeholder {
+            opacity: 0.42;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-moz-placeholder {
+            opacity: 0.42;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus:-ms-input-placeholder {
+            opacity: 0.42;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        label[data-shrink=false]+.MuiInputBase-formControl .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus::-ms-input-placeholder {
+            opacity: 0.42;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+            opacity: 1;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0.38);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
+            -webkit-animation-duration: 5000s;
+            animation-duration: 5000s;
+            -webkit-animation-name: mui-auto-fill;
+            animation-name: mui-auto-fill;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
+            border-radius: inherit;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill WebkitBoxShadow {}
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill WebkitTextFillColor {}
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill caretColor {}
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-rki20w-MuiOutlinedInput-notchedOutline {
+            border-color: rgba(0, 0, 0, 0.23);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+            text-align: left;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            top: -5px;
+            left: 0;
+            margin: 0;
+            padding: 0 8px;
+            pointer-events: none;
+            border-radius: inherit;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            min-width: 0%;
+            border-color: rgba(0, 0, 0, 0.23);
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-yjsfm1 {
+            float: unset;
+            width: auto;
+            overflow: hidden;
+            display: block;
+            padding: 0;
+            height: 11px;
+            font-size: 0.75em;
+            visibility: hidden;
+            max-width: 0.01px;
+            -webkit-transition: max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            transition: max-width 50ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+            white-space: nowrap;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-yjsfm1>span {
+            padding-left: 5px;
+            padding-right: 5px;
+            display: inline-block;
+            opacity: 0;
+            visibility: visible;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-197cyj1 {
+            background-color: #FD182D;
+            font-size: 20px;
+            color: white;
+            padding: 10px;
+            margin-top: 40px;
+            padding-left: 50px;
+            padding-right: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 80%;
+            max-width: 200px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1bvc4cc {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-46b038 {
+            margin-top: 30px;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1x4236u {
+            fontsize: 20px;
+            font-weight: 700;
+            opacity: 0.6;
+        }
+    </style>
+    <style data-emotion="css" data-s="">
+        .css-1q7njkh {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1085.0" data-gr-ext-installed="">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="App">
+            <div class="MuiBox-root css-1v6hr40"><a href="/signin"><svg width="47" height="25" viewBox="0 0 47 40"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M33.2917 26.6667L41.125 20M41.125 20L33.2917 13.3333M41.125 20H13.7083M25.4583 26.6667V28.3333C25.4583 29.6594 24.8394 30.9312 23.7376 31.8689C22.6358 32.8065 21.1415 33.3333 19.5833 33.3333H11.75C10.1919 33.3333 8.69752 32.8065 7.59575 31.8689C6.49397 30.9312 5.875 29.6594 5.875 28.3333V11.6667C5.875 10.3406 6.49397 9.0688 7.59575 8.13112C8.69752 7.19344 10.1919 6.66666 11.75 6.66666H19.5833C21.1415 6.66666 22.6358 7.19344 23.7376 8.13112C24.8394 9.0688 25.4583 10.3406 25.4583 11.6667V13.3333"
+                            stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></a>
+                <div class="MuiBox-root css-in3yi3">Wake Up</div>
+            </div>
+            <div style="max-width: 600px; margin: auto; border: 2px solid rgba(0, 0, 0, 0.26); padding: 30px;">
+                <div class="MuiBox-root css-9zfxb7">
+                    <div class="MuiBox-root css-1g4erk3">Wake Up</div><br><br>
+                    <div class="MuiBox-root css-9dygkv">Sign In</div><br>
+                    <div class="MuiFormControl-root MuiTextField-root css-w3s1g-MuiFormControl-root-MuiTextField-root">
+                        <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+                            data-shrink="false" for="email" id="email-label">Email Address</label>
+                        <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root">
+                            <input aria-invalid="false" id="email" type="text" class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input" value="">
+                            <fieldset aria-hidden="true" class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline">
+                                <legend class="css-yjsfm1"><span>Email Address</span></legend>
+                            </fieldset>
+                        </div>
+                    </div><br>
+                    <div class="MuiFormControl-root MuiTextField-root css-w3s1g-MuiFormControl-root-MuiTextField-root">
+                        <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root"
+                            data-shrink="false" for="pass" id="pass-label">Password</label>
+                        <div class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root">
+                            <input aria-invalid="false" id="pass" type="text" class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input" value="">
+                            <fieldset aria-hidden="true" class="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline">
+                                <legend class="css-yjsfm1"><span>Password</span></legend>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <a href="{% url 'index' %}">
+
+                        <div class="MuiBox-root css-197cyj1">Sign In</div><br>
+                    </a>
+                    <div class="MuiBox-root css-1bvc4cc">Don't have an account?   <a href="{% url 'signup' %}" style="text-decoration: none;">Sign Up</a></div>
+                </div>
+            </div>
+            <div>
+                <div class="MuiBox-root css-46b038">
+                    <div class="MuiBox-root css-1x4236u">Developed with love by</div>
+                    <div class="MuiBox-root css-1q7njkh"><b>AlphaX</b></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+
+</body>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
+</html>
